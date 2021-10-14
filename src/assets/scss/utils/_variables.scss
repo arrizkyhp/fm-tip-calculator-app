@@ -3,27 +3,44 @@
 // Colors
 // Primary
 
-$red: hsl(0, 78%, 62%);
-$cyan: hsl(180, 62%, 55%);
+$cyan: #26c0ab;
+$red: #e36969;
 
 // Neutral
-$dark-blue: hsl(234, 12%, 34%);
+$very-dark-cyan: #00494d;
+$dark-gray-cyan: #5e7a7d;
+$dark-gray-cyan-2: #7f9b9f;
+$light-gray-cyan: #c5e4e7;
+$light-gray-cyan-2: #f4fafa;
+$white: #ffffff;
 
 // Colors Pallete
 $colors: (
   "red": $red,
   "cyan": $cyan,
+  "very-dark-cyan": $very-dark-cyan,
+  "white": $white,
+  "dark-gray-cyan": $dark-gray-cyan,
+  "dark-gray-cyan-2": $dark-gray-cyan-2,
 );
 
 // Font size
-$base-font-size: rem(15) !default;
+$base-font-size: rem(24) !default;
+$font-size-sm: rem(14) !default;
+$font-size-md: rem(18) !default;
+$font-size-lg: rem(20) !default;
+$font-size-xl: rem(38) !default;
 
 // Font Weight
 $font-weight-400: 400;
 $font-weight-700: 700;
 
 // Border Radius
-$base-border-radius: rem(8) !default;
+$base-border-radius-5: rem(5) !default;
+$base-border-radius-13: rem(13) !default;
+$base-border-radius-18: rem(18) !default;
 
 // Box-Shadow
-$base-box-shadow: 0px 10px 25px rgba($red, 0.1), 0px 10px 25px rgba($red, 0.1);
+$main-box-shadow: 0px 8px 20px 5px rgba(13, 104, 109, 0.1);
+$form-box-shadow: inset 0px 2px 8px -5px rgba(0, 0, 0, 0.25);
+$button-box-shadow: inset 0px 2px 5px -3px rgba(0, 0, 0, 0.3);

@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'assets/css/style.css';
-import Counter from 'test/Counter';
+
+import Home from 'pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <Counter />
-    </div>
+    <Router basename="/fm-tip-calculator-app">
+      <Route exact path="/" component={Home} />
+    </Router>
   );
 }
 

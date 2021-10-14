@@ -2,11 +2,32 @@
 @use "variables" as *;
 
 $utilities: (
+  "font-size": (
+    "prefix": "fs",
+    "values": (
+      "default": $base-font-size,
+      "sm": $font-size-sm,
+      "md": $font-size-md,
+      "lg": $font-size-lg,
+      "xl": $font-size-xl,
+    ),
+  ),
   "font-weight": (
     "prefix": "fw",
     "values": (
       "regular": $font-weight-400,
       "bold": $font-weight-700,
+    ),
+  ),
+  "border-radius": (
+    "prefix": "br",
+    "values": (
+      "default": $base-border-radius,
+      "none": 0,
+      "xs": $base-border-radius-5,
+      "sm": $base-border-radius-13,
+      "lg": $base-border-radius-18,
+      "full": 50%,
     ),
   ),
 );
