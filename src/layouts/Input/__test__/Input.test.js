@@ -1,4 +1,5 @@
 import { shallow, mount } from "enzyme";
+import Info from "layouts/Info";
 import Input from "layouts/Input";
 
 let container;
@@ -18,7 +19,6 @@ describe("rendering component", () => {
      it("should render select tip", () => {
        const tipLabel = <label htmlFor="tip">Select Tip %</label>;
        expect(container.contains(tipLabel)).toEqual(true);
-       expect(container.find(".btn").every('.btn--tip')).toEqual(true);
        expect(container.find(".btn--tip")).toHaveLength(5);
        expect(container.exists(".custom-tip")).toEqual(true);
      });
@@ -54,17 +54,26 @@ describe("logic", () => {
       .at(0)
       .simulate("change", { target: { value: -1 } });
 
-    expect(container.find("input").at(0).prop('defaultValue')).toBe(0)
+    expect(container.find("input").at(0).prop('value')).toBe(0)
   })
 
   it("should not input negative value to custom tip", () => {
     container.find("input").at(1).simulate("change", { target: { value: -2 }});
-    expect(container.find("input").at(1).prop('defaultValue')).toBe(0);
+    expect(container.find("input").at(1).prop('value')).toBe(0);
   })
 
   it("should not input negative value to Number of People input", () => {
     container.find("input").at(2).simulate("change", { target: { value: -2 }});
-    expect(container.find("input").at(2).prop('defaultValue')).toBe(0)
+    expect(container.find("input").at(2).prop('value')).toBe(0)
+  })
 
+  it("should show an error when input zero to Bill input", () => {
+    container.find("input").at(0).simulate("change", { target: { value: 0 } });
+    expect(container.find("input").at(0).hasClass('error')).toEqual(true);
+  })
+
+  it("should show an error when input zero to Number of People", () => {
+    container.find("input").at(2).simulate("change", { target: { value: "" } });
+    expect(container.find("input").at(2).hasClass('error')).toEqual(true);
   })
 })
