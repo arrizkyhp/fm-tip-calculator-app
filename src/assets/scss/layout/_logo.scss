@@ -1,0 +1,9 @@
+@use "../utils" as *;
+
+.logo {
+  @include max-width(rem(74));
+  font-size: rem(24);
+  line-height: rem(36);
+  letter-spacing: 0.205em;
+  margin-bottom: rem(60);
+}

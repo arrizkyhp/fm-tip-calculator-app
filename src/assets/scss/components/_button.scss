@@ -1,0 +1,43 @@
+@use "../utils" as *;
+
+.btn {
+  border-radius: $base-border-radius-5;
+  border: none;
+  cursor: pointer;
+
+  &--tip {
+    box-shadow: $button-box-shadow;
+    background: $very-dark-cyan;
+    color: $white;
+    height: rem(42);
+    font-size: rem(20);
+    font-family: $base-font;
+    font-weight: 700;
+  }
+
+  &--reset {
+    @include max-width(310);
+    font-family: $base-font;
+    height: rem(40);
+    font-size: rem(14);
+    color: $very-dark-cyan;
+    font-weight: 700;
+    margin-top: rem(120);
+    background: $cyan;
+
+    &:hover {
+      background: lighten($cyan, 20%);
+    }
+  }
+
+  &.btn-disabled {
+    pointer-events: none;
+    background: darken($cyan, 20%);
+    color: lighten($very-dark-cyan, 10%);
+  }
+
+  &.active {
+    background-color: $cyan;
+    color: $very-dark-cyan;
+  }
+}

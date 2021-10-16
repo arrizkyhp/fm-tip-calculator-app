@@ -1,5 +1,5 @@
 @use "../utils" as *;
 
-main {
+.splitter {
   @include flex-centering();
 }

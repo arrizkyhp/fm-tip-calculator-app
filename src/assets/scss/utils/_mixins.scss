@@ -1,5 +1,6 @@
 @use "functions" as *;
 @use "variables" as *;
+@use "font" as *;
 
 @mixin flex-centering() {
   display: flex;
@@ -17,4 +18,12 @@
 @mixin max-width($size) {
   width: 100%;
   max-width: $size;
+}
+
+@mixin custom-tip-font($warna) {
+  text-align: center;
+  font-size: rem(20);
+  font-weight: 700;
+  color: $warna;
+  font-family: $base-font;
 }

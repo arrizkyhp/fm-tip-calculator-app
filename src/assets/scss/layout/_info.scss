@@ -1,0 +1,38 @@
+@use "../utils" as *;
+
+.info {
+  @include max-width(rem(380));
+  background: $very-dark-cyan;
+  margin: rem(37) rem(34) rem(37) rem(0);
+  border-radius: $base-border-radius-13;
+  box-shadow: $button-box-shadow;
+  padding: rem(45) rem(40) rem(40) rem(40);
+
+  .info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .info__text {
+      &__title {
+        font-size: rem(18);
+        color: $white;
+      }
+
+      &__description {
+        font-size: rem(14);
+        font-weight: 700;
+        color: $dark-gray-cyan-2;
+      }
+    }
+
+    .amount {
+      color: $cyan;
+      font-size: rem(38);
+    }
+
+    &.amount-group {
+      margin-bottom: rem(30);
+    }
+  }
+}

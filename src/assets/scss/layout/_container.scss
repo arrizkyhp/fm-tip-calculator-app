@@ -1,0 +1,8 @@
+@use "../utils" as *;
+
+.container {
+  @include max-width(rem(828));
+  display: flex;
+  background: $white;
+  border-radius: $base-border-radius-18;
+}
