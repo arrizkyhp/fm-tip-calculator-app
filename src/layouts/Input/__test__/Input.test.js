@@ -48,32 +48,78 @@ describe("rendering component", () => {
 })
 
 describe("logic", () => {
-  it("should not input negative value to Bill Input", () => {
-    container
-      .find("input")
-      .at(0)
-      .simulate("change", { target: { value: -1 } });
 
-    expect(container.find("input").at(0).prop('value')).toBe(0)
+  describe("input validation", () => {
+    it("should not input negative value to Bill Input", () => {
+      container
+        .find("input")
+        .at(0)
+        .simulate("change", { target: { value: -1 } });
+
+      expect(container.find("input").at(0).prop('value')).toBe(0)
+    })
+
+    it("should not input negative value to custom tip", () => {
+      container.find("input").at(1).simulate("change", { target: { value: -2 }});
+      expect(container.find("input").at(1).prop('value')).toBe(0);
+    })
+
+    it("should not input negative value to Number of People input", () => {
+      container.find("input").at(2).simulate("change", { target: { value: -2 }});
+      expect(container.find("input").at(2).prop('value')).toBe(0)
+    })
+
+    it("should show an error when input zero to Bill input", () => {
+      container.find("input").at(0).simulate("change", { target: { value: 0 } });
+      expect(container.find("input").at(0).hasClass('error')).toEqual(true);
+    })
+
+    it("should show an error when input zero to Number of People", () => {
+      container.find("input").at(2).simulate("change", { target: { value: "" } });
+      expect(container.find("input").at(2).hasClass('error')).toEqual(true);
+    })
+
+
   })
 
-  it("should not input negative value to custom tip", () => {
-    container.find("input").at(1).simulate("change", { target: { value: -2 }});
-    expect(container.find("input").at(1).prop('value')).toBe(0);
+  describe("input value", () => {
+    it("should render correct tipAmount & total", () => {
+      container.find("input").at(0).simulate("change", { target: { value: 142.55 }});
+      expect(container.find("input").at(0).prop('value')).toBe(142.55)
+
+      container.find(".btn--tip").at(2).simulate("click");
+
+      container.find("input").at(2).simulate("change", { target: { value: 5 }});
+
+      expect(container.find("#tipAmount").text()).toBe(`$4.28`);
+      expect(container.find("#total").text()).toBe(`$32.79`);
+
+    })
+
+    it("should render correct tipAmount & total using customTip", () => {
+      container.find("input").at(0).simulate("change", { target: { value: 142.55 }});
+      container.find("input").at(1).simulate("change", { target: { value: 15 }});
+      container.find("input").at(2).simulate("change", { target: { value: 5 }});
+
+      expect(container.find("#tipAmount").text()).toBe(`$4.28`);
+      expect(container.find("#total").text()).toBe(`$32.79`);
+
+    });
+
+     it("should reset all form when click button reset", () => {
+      container.find("input").at(0).simulate("change", { target: { value: 142.55 }});
+      container.find(".btn--tip").at(2).simulate("click");
+      container.find("input").at(2).simulate("change", { target: { value: 5 }});
+
+      container.find("#buttonReset").simulate("click");
+
+      expect(container.find("input").at(0).prop('value')).toBe(0);
+      expect(container.find("input").at(2).prop('value')).toBe(0);
+
+      expect(container.find('#tipAmount').text()).toBe('$0.00');
+      expect(container.find('#total').text()).toBe('$0.00');
+     });
   })
 
-  it("should not input negative value to Number of People input", () => {
-    container.find("input").at(2).simulate("change", { target: { value: -2 }});
-    expect(container.find("input").at(2).prop('value')).toBe(0)
-  })
 
-  it("should show an error when input zero to Bill input", () => {
-    container.find("input").at(0).simulate("change", { target: { value: 0 } });
-    expect(container.find("input").at(0).hasClass('error')).toEqual(true);
-  })
-
-  it("should show an error when input zero to Number of People", () => {
-    container.find("input").at(2).simulate("change", { target: { value: "" } });
-    expect(container.find("input").at(2).hasClass('error')).toEqual(true);
-  })
 })
