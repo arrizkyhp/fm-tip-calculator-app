@@ -123,10 +123,10 @@ export default function Input() {
 
     return (
       <ResetContext.Provider value={value}>
-        <section className="input">
+        <div className="input">
           <div className="form-group input-bill-icon">
             <label htmlFor="bill">Bill</label>
-            <input type="number" pattern="[0-9]+([\.][0-9]+)?" className={`input-bill form-control ${billClass ? "error" : ""}`} placeholder="0" value={bill} id="bill" min="0" onChange={handleBill} />
+            <input type="number" className={`input-bill form-control ${billClass ? "error" : ""}`} placeholder="0" value={bill} id="bill" min="0" onChange={handleBill} />
           </div>
 
           <div className="form-group tip-group">
@@ -196,7 +196,7 @@ export default function Input() {
             {peopleClass && <p className="nop-error">Can't be zero</p>}
             <input type="number" className={`input-nop form-control ${selected === "custom" ? "active" : ""} ${peopleClass ? "error" : ""}`} id="nop" min="0" placeholder="0" value={people} onChange={handlePeople} />
           </div>
-        </section>
+        </div>
 
         <Info tipAmount={tipAmount} total={total} />
       </ResetContext.Provider>

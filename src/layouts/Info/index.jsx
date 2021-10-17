@@ -9,7 +9,7 @@ export default function Info(props) {
       isReset(true);
     }
     return (
-      <section className="info">
+      <div className="info">
         <div className="info-group amount-group">
           <div className="info__text">
             <h1 className="info__text__title">Tip Amount</h1>
@@ -27,6 +27,6 @@ export default function Info(props) {
         <button className={`btn btn--reset ${!disabled ? "" : "btn-disabled"}`} id="buttonReset" onClick={handleReset}>
           RESET
         </button>
-      </section>
+      </div>
     );
 }
