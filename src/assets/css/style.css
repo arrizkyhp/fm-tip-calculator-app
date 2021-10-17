@@ -125,6 +125,11 @@ input[type=number] {
 .btn--reset:hover {
   background: #6ae2d1;
 }
+@media (max-width: 720px) {
+  .btn--reset {
+    margin-top: 2.5rem;
+  }
+}
 .btn.btn-disabled {
   pointer-events: none;
   background: #156b5f;
@@ -144,6 +149,18 @@ input[type=number] {
   background: #ffffff;
   border-radius: 1.125rem;
 }
+@media (max-width: 720px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-bottom: 2.5rem;
+  }
+}
 
 .logo {
   width: 100%;
@@ -153,9 +170,26 @@ input[type=number] {
   letter-spacing: 0.205em;
   margin-bottom: 3.75rem;
 }
+@media (max-width: 720px) {
+  .logo {
+    margin: 2.5rem auto;
+  }
+}
 
 .input {
   margin: 3.125rem 2.1875rem 3.125rem 3.125rem;
+}
+@media (max-width: 720px) {
+  .input {
+    margin: 3.125rem 1.875rem 0rem 1.875rem;
+    max-width: none;
+    width: auto;
+  }
+}
+@media (max-width: 420px) {
+  .input {
+    margin: 3.125rem 1.5625rem 0rem 1.5625rem;
+  }
 }
 .input .form-group {
   width: 100%;
@@ -187,6 +221,12 @@ input[type=number] {
           box-shadow: inset 0px 2px 8px -5px rgba(0, 0, 0, 0.25);
   font-weight: 700;
   outline: none;
+}
+@media (max-width: 420px) {
+  .input .form-group .form-control {
+    width: 100%;
+    max-width: 20.5625rem;
+  }
 }
 .input .form-group .form-control::-webkit-input-placeholder {
   color: #7f9b9f;
@@ -236,6 +276,11 @@ input[type=number] {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.625rem;
 }
+@media (max-width: 420px) {
+  .input .form-group .btn-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .input .form-group .btn-group .select-tip {
   width: 100%;
   max-width: 6.4375rem;
@@ -252,6 +297,8 @@ input[type=number] {
   background: #f4fafa;
   outline: none;
   color: red;
+  width: 100%;
+  max-width: 11.25rem;
   text-align: center;
   font-size: 1.25rem;
   font-weight: 700;
@@ -312,6 +359,19 @@ input[type=number] {
           box-shadow: inset 0px 6px 5px -3px rgba(0, 0, 0, 0.3);
   padding: 2.8125rem 2.5rem 2.5rem 2.5rem;
 }
+@media (max-width: 720px) {
+  .info {
+    padding: 1.875rem 1.25rem 1.875rem 1.25rem;
+    margin: 2.3125rem 1.875rem;
+    max-width: none;
+    width: auto;
+  }
+}
+@media (max-width: 420px) {
+  .info {
+    margin: 1.875rem 1.5625rem;
+  }
+}
 .info .info-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -333,11 +393,26 @@ input[type=number] {
   color: #7f9b9f;
 }
 .info .info-group .amount {
+  width: 100%;
+  max-width: 10.625rem;
+  text-align: right;
   color: #26c0ab;
   font-size: 2.375rem;
+  overflow: auto;
+}
+@media (max-width: 720px) {
+  .info .info-group .amount {
+    width: 100%;
+    max-width: 8.75rem;
+  }
 }
 .info .info-group.amount-group {
   margin-bottom: 1.875rem;
+}
+@media (max-width: 420px) {
+  .info .info-group.amount-group {
+    margin-bottom: 1.25rem;
+  }
 }
 
 .splitter {

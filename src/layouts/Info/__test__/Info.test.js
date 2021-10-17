@@ -18,8 +18,8 @@ describe("rendering component", () => {
 })
 
 describe("passing props", () => {
-  const tipAmount = 4.28;
-  const total = 32.79;
+  let tipAmount = 4.28;
+  let total = 32.79;
   const infoContainer = mount(<Info tipAmount={tipAmount} total={total} />);
 
   it("should accept tipAmount props", () => {
@@ -37,4 +37,8 @@ describe("passing props", () => {
   it("should render correct total value info", () => {
     expect(infoContainer.find("#total").text()).toBe(`$${total}`);
   })
+
+
 });
+
+

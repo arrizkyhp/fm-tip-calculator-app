@@ -3,6 +3,17 @@
 .input {
   margin: rem(50) rem(35) rem(50) rem(50);
 
+  @include breakpoint-max(md) {
+    margin: rem(50) rem(30) rem(0) rem(30);
+
+    max-width: none;
+    width: auto;
+  }
+
+  @include breakpoint-max(sm) {
+    margin: rem(50) rem(25) rem(0) rem(25);
+  }
+
   .form-group {
     @include max-width(rem(329));
     display: flex;
@@ -27,6 +38,10 @@
       box-shadow: $form-box-shadow;
       font-weight: 700;
       outline: none;
+
+      @include breakpoint-max(sm) {
+        @include max-width(rem(329));
+      }
 
       &::placeholder {
         color: $dark-gray-cyan-2;
@@ -73,6 +88,10 @@
       grid-template-columns: repeat(3, 1fr);
       gap: rem(10);
 
+      @include breakpoint-max(sm) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .select-tip {
         @include max-width(rem(103));
         height: rem(42);
@@ -89,6 +108,7 @@
         background: $light-gray-cyan-2;
         outline: none;
         color: red;
+        @include max-width(rem(180));
         @include custom-tip-font($very-dark-cyan);
 
         &::placeholder {

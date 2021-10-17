@@ -66,7 +66,7 @@ describe("logic", () => {
 
     it("should not input negative value to Number of People input", () => {
       container.find("input").at(2).simulate("change", { target: { value: -2 }});
-      expect(container.find("input").at(2).prop('value')).toBe(0)
+      expect(container.find("input").at(2).prop('value')).toBe("")
     })
 
     it("should show an error when input zero to Bill input", () => {
@@ -113,13 +113,56 @@ describe("logic", () => {
 
       container.find("#buttonReset").simulate("click");
 
-      expect(container.find("input").at(0).prop('value')).toBe(0);
-      expect(container.find("input").at(2).prop('value')).toBe(0);
+      expect(container.find("input").at(0).prop('value')).toBe("");
+      expect(container.find("input").at(2).prop('value')).toBe("");
 
       expect(container.find('#tipAmount').text()).toBe('$0.00');
       expect(container.find('#total').text()).toBe('$0.00');
      });
   })
 
+  describe("tip selection button", () => {
+    it("should show active class when select tip button", () => {
+      container.find(".btn--tip").at(2).simulate("click");
+      expect(container.find(".btn--tip").at(2).hasClass(/active/i)).toEqual(true);
+    })
+
+    it("should clear active class when type on custom tip", () => {
+      container.find(".btn--tip").at(2).simulate("click");
+      expect(container.find(".btn--tip").at(2).hasClass(/active/i)).toEqual(true);
+
+      container.find('input').at(1).simulate("change", { target: { value: 15 }});
+      expect(container.find(".btn--tip").at(2).hasClass(/active/i)).toEqual(false);
+    })
+  })
+
+
+  describe("reset button", () => {
+    it("should disabled button by default", () => {
+      expect(container.find("#buttonReset").hasClass("btn-disabled")).toEqual(true);
+    });
+
+    it("should not disable button when all value filled", () => {
+       container.find("input").at(0).simulate("change", { target: { value: 142.55 }});
+      container.find("input").at(1).simulate("change", { target: { value: 15 }});
+      container.find("input").at(2).simulate("change", { target: { value: 5 }});
+
+      expect(container.find("#buttonReset").hasClass("btn-disabled")).toEqual(false);
+    });
+
+    it("should reset all value when click reset button", () => {
+      container.find("input").at(0).simulate("change", { target: { value: 142.55 }});
+      container.find("input").at(1).simulate("change", { target: { value: 15 }});
+      container.find("input").at(2).simulate("change", { target: { value: 5 }});
+
+      expect(container.find("#buttonReset").hasClass("btn-disabled")).toEqual(false);
+
+      container.find("#buttonReset").simulate("click")
+      expect(container.find("input").at(0).prop('value')).toBe("");
+      expect(container.find("input").at(1).prop('value')).toBe("");
+      expect(container.find("input").at(2).prop('value')).toBe("");
+
+    })
+  });
 
 })

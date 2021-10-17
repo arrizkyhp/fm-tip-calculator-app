@@ -6,4 +6,8 @@
   line-height: rem(36);
   letter-spacing: 0.205em;
   margin-bottom: rem(60);
+
+  @include breakpoint-max(md) {
+    margin: rem(40) auto;
+  }
 }

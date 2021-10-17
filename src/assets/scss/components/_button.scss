@@ -28,6 +28,10 @@
     &:hover {
       background: lighten($cyan, 20%);
     }
+
+    @include breakpoint-max(md) {
+      margin-top: rem(40);
+    }
   }
 
   &.btn-disabled {

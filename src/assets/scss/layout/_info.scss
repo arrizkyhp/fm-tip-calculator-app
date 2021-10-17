@@ -8,6 +8,17 @@
   box-shadow: $button-box-shadow;
   padding: rem(45) rem(40) rem(40) rem(40);
 
+  @include breakpoint-max(md) {
+    padding: rem(30) rem(20) rem(30) rem(20);
+    margin: rem(37) rem(30);
+    max-width: none;
+    width: auto;
+  }
+
+  @include breakpoint-max(sm) {
+    margin: rem(30) rem(25);
+  }
+
   .info-group {
     display: flex;
     justify-content: space-between;
@@ -27,12 +38,23 @@
     }
 
     .amount {
+      @include max-width(rem(170));
+      text-align: right;
       color: $cyan;
       font-size: rem(38);
+      overflow: auto;
+
+      @include breakpoint-max(md) {
+        @include max-width(rem(140));
+      }
     }
 
     &.amount-group {
       margin-bottom: rem(30);
+
+      @include breakpoint-max(sm) {
+        margin-bottom: rem(20);
+      }
     }
   }
 }

@@ -5,4 +5,10 @@
   display: flex;
   background: $white;
   border-radius: $base-border-radius-18;
+
+  @include breakpoint-max(md) {
+    flex-direction: column;
+    width: fit-content;
+    margin-bottom: rem(40);
+  }
 }
