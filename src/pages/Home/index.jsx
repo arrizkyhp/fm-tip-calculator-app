@@ -1,3 +1,4 @@
+import Footer from "layouts/Footer/Footer";
 import Input from "layouts/Input";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <div className="container">
         <Input />
       </div>
+      <Footer />
     </main>
   );
 }
